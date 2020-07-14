@@ -1,0 +1,47 @@
+  <html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Show current day and time</title>
+  </head>
+  <body>
+      <p><h2>Showing correct day and time.</h2></p>
+      <script>
+          var today = new Date();
+          var day = today.getDay();
+          var dl = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
+          document.write("Today is : " + dl[day] + ".");
+          var hour = today.getHours();
+          var minute = today.getMinutes();
+          var second = today.getSeconds();
+          var prep = (hour >= 12)? " PM ":" AM ";
+          hour = (hour >= 12)? hour - 12: hour;
+          if (hour===0 && prep==='PM') 
+          { 
+          if (minute===0 && second===0)
+          { 
+              hour=12;
+              prep='Noon';
+          } 
+          else
+          { 
+              hour=12;
+              prep='PM';
+          } 
+          } 
+          if (hour===0 && prep==='AM') 
+          { 
+          if (minute===0 && second===0)
+          { 
+              hour=12;
+              prep=' Midnight';
+          } 
+          else
+          { 
+              hour=12;
+              prep='AM';
+          } 
+          } 
+          document.write("\nCurrent Time : "+hour + prep + " : " + minute + " : " + second);
+       </script>
+  </body>
+</html>
